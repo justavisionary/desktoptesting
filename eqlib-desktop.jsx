@@ -1,12 +1,8 @@
-// eqlib-desktop.jsx
+// Access React hooks from the global React object
 const { useState, useEffect } = React;
-const { Terminal, lucide.FolderOpen, lucide.FileText, X, Maximize2, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key } = lucide;
 
-const EqlibDesktopEnvironment = () => {
-  // Paste the full component code here, but replace the import statements
-  // and use the global React.useState and lucide icon components
-  import React, { useState, useEffect } from 'react';
-import { Terminal, lucide.FolderOpen, lucide.FileText, X, Maximize2, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key } from 'lucide-react';
+// Access Lucide icons from the global lucide object
+const { Terminal, FolderOpen, FileText, X, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key, CheckCircle, HelpCircle, RefreshCw, Copy } = lucide;
 
 const EqlibDesktopEnvironment = () => {
   const [activeWindow, setActiveWindow] = useState('terminal');
@@ -1309,7 +1305,7 @@ instead of to the Cabal.
                     <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                       <div className="flex items-start">
                         <div className="w-8 h-8 rounded-full bg-yellow-900 flex items-center justify-center mr-3 flex-shrink-0">
-                          <AlertTriangle className="w-4 h-4 text-yellow-300" />
+                          <lucide.AlertCircle className="w-4 h-4 text-yellow-300" />
                         </div>
                         <div>
                           <h4 className="font-bold">Protocol 3: Threshold Defense</h4>
@@ -1507,7 +1503,7 @@ instead of to the Cabal.
                   
                   <div className="bg-yellow-900 bg-opacity-20 border border-yellow-800 rounded-lg p-4 text-left">
                     <div className="flex items-start">
-                      <AlertTriangle className="h-5 w-5 text-yellow-500 mt-0.5 mr-2 flex-shrink-0" />
+                      <lucide.AlertCircle className="h-5 w-5 text-yellow-500 mt-0.5 mr-2 flex-shrink-0" />
                       <div>
                         <h4 className="font-semibold text-yellow-400 mb-1">CRITICAL INFORMATION UNCOVERED</h4>
                         <p className="text-sm text-gray-300 mb-2">
@@ -1575,7 +1571,7 @@ instead of to the Cabal.
                         {decryptFeedback.type === 'success' ? (
                           <lucide.CheckCircle className="h-4 w-4 mr-2" />
                         ) : (
-                          <AlertTriangle className="h-4 w-4 mr-2" />
+                          <lucide.AlertCircle className="h-4 w-4 mr-2" />
                         )}
                         <span>{decryptFeedback.message}</span>
                       </div>
@@ -1605,8 +1601,17 @@ instead of to the Cabal.
                           : 'bg-blue-600 hover:bg-blue-700 text-white'
                       }`}
                     >
-                      <lucide.Key className="h-4 w-4 mr-2" />
-                      <span>Decrypt</span>
+                      {isProcessing ? (
+                        <>
+                          <lucide.RefreshCw className="h-4 w-4 mr-2 animate-spin" />
+                          <span>Decrypting...</span>
+                        </>
+                      ) : (
+                        <>
+                          <lucide.Key className="h-4 w-4 mr-2" />
+                          <span>Decrypt</span>
+                        </>
+                      )}
                     </button>
                     
                     <button
@@ -1784,7 +1789,7 @@ instead of to the Cabal.
             className={`h-8 w-8 rounded flex items-center justify-center ${activeWindow === 'terminal' ? 'bg-blue-700' : 'bg-gray-700'}`}
             onClick={() => openWindow('terminal')}
           >
-            <Terminal size={16} className="text-gray-200" />
+            <lucide.Terminal size={16} className="text-gray-200" />
           </button>
           
           <button 
@@ -1820,14 +1825,9 @@ instead of to the Cabal.
   );
 };
 
-export default EqlibDesktopEnvironment;
-  // ...rest of your component code...
-};
-
 // Mount the component when the DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
   const container = document.getElementById('eqlib-desktop-root');
   const root = ReactDOM.createRoot(container);
-  root.render(<EqlibDesktopEnvironment />);
+  root.render(React.createElement(EqlibDesktopEnvironment));
 });
-
