@@ -1,8 +1,6 @@
-// Access React hooks from the global React object
-const { useState, useEffect } = React;
-
-// Access Lucide icons from the global lucide object
-const { Terminal, FolderOpen, FileText, X, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key, CheckCircle, HelpCircle, RefreshCw, Copy } = lucide;
+// Use React hooks directly from the React global object
+const useState = React.useState;
+const useEffect = React.useEffect;
 
 const EqlibDesktopEnvironment = () => {
   const [activeWindow, setActiveWindow] = useState('terminal');
