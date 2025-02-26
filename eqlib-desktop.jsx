@@ -1,12 +1,12 @@
 // eqlib-desktop.jsx
 const { useState, useEffect } = React;
-const { Terminal, FolderOpen, FileText, X, Maximize2, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key } = lucide;
+const { Terminal, lucide.FolderOpen, lucide.FileText, X, Maximize2, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key } = lucide;
 
 const EqlibDesktopEnvironment = () => {
   // Paste the full component code here, but replace the import statements
   // and use the global React.useState and lucide icon components
   import React, { useState, useEffect } from 'react';
-import { Terminal, FolderOpen, FileText, X, Maximize2, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key } from 'lucide-react';
+import { Terminal, lucide.FolderOpen, lucide.FileText, X, Maximize2, Minimize2, Eye, AlertCircle, Lock, File, Shield, BarChart2, Key } from 'lucide-react';
 
 const EqlibDesktopEnvironment = () => {
   const [activeWindow, setActiveWindow] = useState('terminal');
@@ -1026,7 +1026,7 @@ instead of to the Cabal.
         return (
           <div className="bg-gray-900 text-gray-200 h-full flex flex-col">
             <div className="border-b border-gray-700 bg-gray-800 p-2 flex items-center">
-              <FolderOpen size={16} className="text-blue-400 mr-2" />
+              <lucide.FolderOpen size={16} className="text-blue-400 mr-2" />
               <span className="text-sm">{fileSystem.currentPath}</span>
             </div>
             <div className="p-4 flex-1 overflow-auto">
@@ -1040,7 +1040,7 @@ instead of to the Cabal.
                       openWindow('terminal');
                     }}
                   >
-                    <FolderOpen size={32} className="text-blue-400 mb-2" />
+                    <lucide.FolderOpen size={32} className="text-blue-400 mb-2" />
                     <span className="text-sm text-center">{folder}</span>
                   </div>
                 ))}
@@ -1055,13 +1055,13 @@ instead of to the Cabal.
                     }}
                   >
                     {file.locked ? (
-                      <Lock size={32} className="text-red-400 mb-2" />
+                      <lucide.Lock size={32} className="text-red-400 mb-2" />
                     ) : file.type === 'text' || file.type === 'markdown' ? (
-                      <FileText size={32} className="text-gray-400 mb-2" />
+                      <lucide.FileText size={32} className="text-gray-400 mb-2" />
                     ) : file.type === 'pdf' ? (
-                      <File size={32} className="text-red-300 mb-2" />
+                      <lucide.File size={32} className="text-red-300 mb-2" />
                     ) : (
-                      <File size={32} className="text-purple-300 mb-2" />
+                      <lucide.File size={32} className="text-purple-300 mb-2" />
                     )}
                     <span className="text-sm text-center break-all">
                       {file.name}
@@ -1080,7 +1080,7 @@ instead of to the Cabal.
             {/* Dashboard Header */}
             <div className="bg-gray-800 border-b border-gray-700 p-4 flex justify-between items-center">
               <div className="flex items-center">
-                <Shield className="h-5 w-5 text-red-500 mr-2" />
+                <lucide.Shield className="h-5 w-5 text-red-500 mr-2" />
                 <h2 className="text-lg font-medium">THE CABAL CONTROL INTERFACE</h2>
               </div>
               <div className="flex items-center">
@@ -1190,7 +1190,7 @@ instead of to the Cabal.
                             className="bg-red-900 hover:bg-red-800 text-white px-4 py-2 rounded-lg w-full flex items-center justify-center"
                             onClick={() => setRevealThreshold(!revealThreshold)}
                           >
-                            <Lock className="w-4 h-4 mr-2" />
+                            <lucide.Lock className="w-4 h-4 mr-2" />
                             {revealThreshold ? 'Hide Critical Threshold Data' : 'Reveal Critical Threshold Data'}
                           </button>
                           
@@ -1273,7 +1273,7 @@ instead of to the Cabal.
                     <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                       <div className="flex items-start">
                         <div className="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center mr-3 flex-shrink-0">
-                          <Shield className="w-4 h-4 text-blue-300" />
+                          <lucide.Shield className="w-4 h-4 text-blue-300" />
                         </div>
                         <div>
                           <h4 className="font-bold">Protocol 1: Extraction</h4>
@@ -1291,7 +1291,7 @@ instead of to the Cabal.
                     <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                       <div className="flex items-start">
                         <div className="w-8 h-8 rounded-full bg-green-900 flex items-center justify-center mr-3 flex-shrink-0">
-                          <Eye className="w-4 h-4 text-green-300" />
+                          <lucide.Eye className="w-4 h-4 text-green-300" />
                         </div>
                         <div>
                           <h4 className="font-bold">Protocol 2: Surveillance</h4>
@@ -1328,7 +1328,7 @@ instead of to the Cabal.
                       <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
                         <div className="flex items-start">
                           <div className="w-8 h-8 rounded-full bg-gray-900 flex items-center justify-center mr-3 flex-shrink-0">
-                            <Lock className="w-4 h-4 text-gray-300" />
+                            <lucide.Lock className="w-4 h-4 text-gray-300" />
                           </div>
                           <div>
                             <h4 className="font-bold">Protocol 7: Emergency Reset</h4>
@@ -1443,7 +1443,7 @@ instead of to the Cabal.
                       <h3 className="text-lg font-bold mb-3">Containment Operations</h3>
                       <div className="bg-red-900 bg-opacity-20 border border-red-800 rounded-lg p-4">
                         <h4 className="text-red-400 font-bold mb-2 flex items-center">
-                          <FileText className="h-4 w-4 mr-2" />
+                          <lucide.FileText className="h-4 w-4 mr-2" />
                           DIRECTIVE: CIPHER CONTAINMENT
                         </h4>
                         <p className="text-sm text-gray-300 mb-3">
@@ -1479,7 +1479,7 @@ instead of to the Cabal.
           <div className="bg-gray-900 text-gray-300 h-full flex flex-col">
             <div className="bg-gray-800 border-b border-gray-700 p-4 flex justify-between items-center">
               <div className="flex items-center">
-                <Key className="h-5 w-5 text-green-500 mr-2" />
+                <lucide.Key className="h-5 w-5 text-green-500 mr-2" />
                 <h2 className="text-lg font-medium">Multi-Layer Encryption Challenge</h2>
               </div>
               <div className="text-xs text-gray-400 font-mono">
@@ -1490,7 +1490,7 @@ instead of to the Cabal.
             <div className="p-6 flex-1 overflow-auto">
               {isDecryptComplete ? (
                 <div className="text-center py-8">
-                  <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                  <lucide.CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-xl font-bold text-green-400 mb-3">Decryption Complete</h3>
                   <p className="text-gray-400 mb-6">All encryption layers successfully bypassed.</p>
                   
@@ -1573,7 +1573,7 @@ instead of to the Cabal.
                     }`}>
                       <div className="flex items-center">
                         {decryptFeedback.type === 'success' ? (
-                          <CheckCircle className="h-4 w-4 mr-2" />
+                          <lucide.CheckCircle className="h-4 w-4 mr-2" />
                         ) : (
                           <AlertTriangle className="h-4 w-4 mr-2" />
                         )}
@@ -1586,7 +1586,7 @@ instead of to the Cabal.
                   {showHint && (
                     <div className="mb-4 p-3 bg-blue-900 bg-opacity-20 border border-blue-800 rounded text-blue-400 text-sm">
                       <div className="flex items-start">
-                        <HelpCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                        <lucide.HelpCircle className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
                         <div>
                           <div className="font-semibold mb-1">HINT:</div>
                           <div>{currentPuzzle.hint}</div>
@@ -1605,7 +1605,7 @@ instead of to the Cabal.
                           : 'bg-blue-600 hover:bg-blue-700 text-white'
                       }`}
                     >
-                      <Key className="h-4 w-4 mr-2" />
+                      <lucide.Key className="h-4 w-4 mr-2" />
                       <span>Decrypt</span>
                     </button>
                     
@@ -1640,7 +1640,7 @@ instead of to the Cabal.
         return (
           <div className="bg-gray-900 text-gray-200 h-full flex flex-col">
             <div className="border-b border-gray-700 bg-gray-800 p-2 flex items-center">
-              <FileText size={16} className="text-blue-400 mr-2" />
+              <lucide.FileText size={16} className="text-blue-400 mr-2" />
               <span className="text-sm">board_meeting_transcript.txt</span>
             </div>
             <div className="p-6 flex-1 overflow-auto font-mono text-sm leading-relaxed">
@@ -1696,7 +1696,7 @@ instead of to the Cabal.
             className="flex flex-col items-center cursor-pointer hover:bg-gray-800 hover:bg-opacity-50 p-2 rounded"
             onClick={() => openWindow('terminal')}
           >
-            <Terminal size={36} className="text-gray-300 mb-1" />
+            <lucide.Terminal size={36} className="text-gray-300 mb-1" />
             <span className="text-gray-200 text-sm text-center">Terminal</span>
           </div>
           
@@ -1704,7 +1704,7 @@ instead of to the Cabal.
             className="flex flex-col items-center cursor-pointer hover:bg-gray-800 hover:bg-opacity-50 p-2 rounded"
             onClick={() => openWindow('files')}
           >
-            <FolderOpen size={36} className="text-blue-400 mb-1" />
+            <lucide.FolderOpen size={36} className="text-blue-400 mb-1" />
             <span className="text-gray-200 text-sm text-center">Files</span>
           </div>
           
@@ -1712,7 +1712,7 @@ instead of to the Cabal.
             className="flex flex-col items-center cursor-pointer hover:bg-gray-800 hover:bg-opacity-50 p-2 rounded"
             onClick={() => openWindow('dashboard')}
           >
-            <Shield size={36} className="text-red-400 mb-1" />
+            <lucide.Shield size={36} className="text-red-400 mb-1" />
             <span className="text-gray-200 text-sm text-center">Control Dashboard</span>
           </div>
           
@@ -1720,7 +1720,7 @@ instead of to the Cabal.
             className="flex flex-col items-center cursor-pointer hover:bg-gray-800 hover:bg-opacity-50 p-2 rounded"
             onClick={() => openWindow('decryption')}
           >
-            <Key size={36} className="text-green-400 mb-1" />
+            <lucide.Key size={36} className="text-green-400 mb-1" />
             <span className="text-gray-200 text-sm text-center">Decryption Tool</span>
           </div>
           
@@ -1728,7 +1728,7 @@ instead of to the Cabal.
             className="flex flex-col items-center cursor-pointer hover:bg-gray-800 hover:bg-opacity-50 p-2 rounded"
             onClick={() => openWindow('document')}
           >
-            <FileText size={36} className="text-yellow-400 mb-1" />
+            <lucide.FileText size={36} className="text-yellow-400 mb-1" />
             <span className="text-gray-200 text-sm text-center">Leaked Document</span>
           </div>
         </div>
@@ -1758,13 +1758,13 @@ instead of to the Cabal.
                   onClick={() => minimizeWindow(activeWindow)}
                   className="h-5 w-5 flex items-center justify-center rounded hover:bg-gray-600"
                 >
-                  <Minimize2 size={14} className="text-gray-300" />
+                  <lucide.Minimize2 size={14} className="text-gray-300" />
                 </button>
                 <button 
                   onClick={() => closeWindow(activeWindow)}
                   className="h-5 w-5 flex items-center justify-center rounded hover:bg-red-700"
                 >
-                  <X size={14} className="text-gray-300" />
+                  <lucide.X size={14} className="text-gray-300" />
                 </button>
               </div>
             </div>
@@ -1791,27 +1791,27 @@ instead of to the Cabal.
             className={`h-8 w-8 rounded flex items-center justify-center ${activeWindow === 'files' ? 'bg-blue-700' : 'bg-gray-700'}`}
             onClick={() => openWindow('files')}
           >
-            <FolderOpen size={16} className="text-gray-200" />
+            <lucide.FolderOpen size={16} className="text-gray-200" />
           </button>
           
           <button 
             className={`h-8 w-8 rounded flex items-center justify-center ${activeWindow === 'dashboard' ? 'bg-blue-700' : 'bg-gray-700'}`}
             onClick={() => openWindow('dashboard')}
           >
-            <Shield size={16} className="text-gray-200" />
+            <lucide.Shield size={16} className="text-gray-200" />
           </button>
           
           <button 
             className={`h-8 w-8 rounded flex items-center justify-center ${activeWindow === 'decryption' ? 'bg-blue-700' : 'bg-gray-700'}`}
             onClick={() => openWindow('decryption')}
           >
-            <Key size={16} className="text-gray-200" />
+            <lucide.Key size={16} className="text-gray-200" />
           </button>
         </div>
         
         <div className="flex items-center">
           <div className="text-red-400 text-xs font-medium flex items-center">
-            <Eye size={14} className="mr-1" />
+            <lucide.Eye size={14} className="mr-1" />
             <span>CABAL SURVEILLANCE ACTIVE</span>
           </div>
         </div>
@@ -1830,3 +1830,4 @@ document.addEventListener('DOMContentLoaded', function() {
   const root = ReactDOM.createRoot(container);
   root.render(<EqlibDesktopEnvironment />);
 });
+
